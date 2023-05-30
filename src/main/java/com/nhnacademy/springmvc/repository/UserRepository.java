@@ -1,17 +1,14 @@
 package com.nhnacademy.springmvc.repository;
 
-import com.nhnacademy.springmvc.domain.User;
 
-public interface UserRepository {
-    boolean exists(String id);
-    boolean matches(String id, String password);
+import com.nhnacademy.springmvc.entity.User;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-    User getUser(String id);
+import java.util.List;
 
-    User addUser(String id, String password);
+public interface UserRepository extends JpaRepository<User,String> {
 
-    User addUser(String id, String password, int age, String name);
+    Boolean existsByUserId(String userId);
 
-    void modify(User user);
 
 }

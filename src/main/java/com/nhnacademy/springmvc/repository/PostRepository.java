@@ -1,12 +1,13 @@
 package com.nhnacademy.springmvc.repository;
 
-import com.nhnacademy.springmvc.domain.Post;
 
-public interface PostRepository {
-    boolean exists(long id);
+import com.nhnacademy.springmvc.entity.Post;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.NoRepositoryBean;
 
-    Post register(String title, String content);
+import java.util.List;
 
-    Post getPost(long id);
 
+public interface PostRepository extends JpaRepository<Post,Long> {
+    List<Post> findByUser_UserIdLike(String userId);
 }
