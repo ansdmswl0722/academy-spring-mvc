@@ -3,31 +3,35 @@ package com.nhnacademy.springmvc.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.List;
 
-@NoArgsConstructor
 @Entity
 @Getter
-@Table(name = "Users")
+@ToString
+@NoArgsConstructor
+@EqualsAndHashCode
+@AllArgsConstructor
+@Table(name = "Board_Users")
 public class User {
     @Id
     @Column(name = "user_id")
     private String userId;
     @Column(name = "password")
     private String password;
-    @Column(name = "age")
     private int age;
-    @Column(name = "name")
     private String name;
-    private String img;
+    private String profileFileName;
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;;
+    private String role;
     @OneToMany(mappedBy = "user")
     private List<Post> postList;
 
-    public User(String userId, String password, int age, String name ,String img) {
-        this.userId = userId;
-        this.password = password;
-        this.age = age;
-        this.name = name;
-        this.img = img;
-    }
+
+
+
+
+
+
 }

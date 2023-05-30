@@ -1,4 +1,4 @@
 package com.nhnacademy.springmvc.controller;
 
-public interface ControllerBase {
+public class UserWebController {
 }
